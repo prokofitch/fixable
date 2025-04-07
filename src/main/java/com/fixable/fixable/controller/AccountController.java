@@ -6,6 +6,8 @@ import com.fixable.fixable.dto.RegisterRequest;
 import com.fixable.fixable.entity.User;
 import com.fixable.fixable.repository.UserRepository;
 import com.fixable.fixable.security.JwtUtil;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,11 +42,20 @@ public class AccountController {
     }
 
     @PostMapping("/login")
-    public JwtResponse login(@RequestBody LoginRequest request) {
+    public JwtResponse login(@RequestBody LoginRequest request, HttpServletResponse response) {
         Optional<User> userOpt = repo.findByUsername(request.getUsername());
 
         if(userOpt.isPresent() && userOpt.get().getPassword().equals(request.getPassword())) {
             String token = jwtUtil.generateToken(userOpt.get().getUsername());
+
+            Cookie cookie = new Cookie("Session", token);
+            cookie.setPath("/");
+            cookie.setHttpOnly(false);
+            cookie.setSecure(false);
+            cookie.setMaxAge(24 * 60 * 60);
+
+            response.addCookie(cookie);
+
             return new JwtResponse(token);
         }
 
