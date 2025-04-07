@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ff9ce3, #7ecaff);
+  font-family: 'Verdana', sans-serif;
+  color: #fff;
+}
+
+.vaporwave-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.vaporwave-header {
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: 'Courier New', monospace;
+  text-shadow: 2px 2px #000;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #f0f0f0;
+}
+
+.login-box {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid #fff;
+  border-radius: 8px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 4px 4px 12px #222;
+}
+
+.login-box input {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.login-box button {
+  margin-top: 10px;
+  background-color: #ff62cc;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+}
+
+.login-box button:hover {
+  background-color: #e44ec8;
+}
+
+.register-btn {
+  background-color: #62d1ff;
+  margin-top: 15px;
+}
+
+.register-btn:hover {
+  background-color: #3ca5d9;
+}
+
+.footer {
+  margin-top: 50px;
+  font-size: 12px;
+  color: #eee;
+}
+
+.marquee-footer {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  border-top: 2px dashed #00fff7;
+}
