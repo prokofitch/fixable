@@ -34,7 +34,6 @@ function Login() {
   return (
     <div className="vaporwave-container">
       <div className="vaporwave-header">
-        <img src="/logo-fixable.png" alt="Fixable" className="logo" />
         <h1>Fixable</h1>
         <p>A web como ela deveria ser.</p>
       </div>
@@ -61,12 +60,13 @@ function Login() {
       <div className="footer">
         <p>© 2004 Fixable Network</p>
       </div>
-
-      
-      <marquee behavior="scroll" direction="left" scrollamount="5" className="marquee-footer">
-      Bem-vindo à Fixable - A sua rede social melhor que o Orkut! Personalize seu perfil e entre na onda!
-      </marquee>
-
+      <footer>
+        <div className="marquee-footer">
+          <div className="marquee-content">
+            Bem-vindo à Fixable - A sua rede social melhor que o Orkut! Personalize seu perfil e entre na onda!
+          </div>
+        </div>
+      </footer>
     </div>
     
   );
