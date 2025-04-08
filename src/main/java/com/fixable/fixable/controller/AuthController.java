@@ -5,6 +5,8 @@ import com.fixable.fixable.dto.ChangePasswordRequest;
 import com.fixable.fixable.entity.User;
 import com.fixable.fixable.repository.UserRepository;
 import com.fixable.fixable.security.JwtUtil;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +24,15 @@ public class AuthController {
 
     @PostMapping("/change-password")
     public String changePassword(
-            @RequestHeader("Authorization") String authHeader,
+            @CookieValue("Session") String sessionToken,
             @RequestBody ChangePasswordRequest request
             ) {
-        String token = authHeader.replace("Bearer", "").trim();
-        String username = jwtUtil.extractUsername(token);
+
+        if (sessionToken == null || sessionToken.trim().isEmpty()) {
+            return "Token de sessão inválido";
+        }
+
+        String username = jwtUtil.extractUsername(sessionToken);
 
         Optional<User> userOpt = repo.findByUsername(username);
 
