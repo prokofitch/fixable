@@ -4,21 +4,18 @@ body {
   background: linear-gradient(to bottom right, #ff9ce3, #7ecaff);
   font-family: 'Verdana', sans-serif;
   color: #fff;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 .vaporwave-container {
   text-align: center;
-  padding: 40px 20px;
+  padding: 120px 20px;
 }
 
 .vaporwave-header {
   margin-bottom: 40px;
-}
-
-.logo {
-  width: 80px;
-  height: auto;
-  margin-bottom: 10px;
 }
 
 h1 {
@@ -41,7 +38,9 @@ p {
   width: 300px;
   margin: 0 auto;
   padding: 20px;
-  box-shadow: 4px 4px 12px #222;
+  box-shadow: 0 0 15px rgba(255, 98, 204, 0.8);
+  position: relative;
+  z-index: 10;
 }
 
 .login-box input {
@@ -53,6 +52,7 @@ p {
   color: #000;
   font-size: 14px;
   border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 98, 204, 0.6);
 }
 
 .login-box button {
@@ -65,19 +65,23 @@ p {
   cursor: pointer;
   border-radius: 4px;
   transition: 0.2s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 98, 204, 0.6);
 }
 
 .login-box button:hover {
   background-color: #e44ec8;
+  box-shadow: 0 0 15px rgba(255, 98, 204, 0.9);
 }
 
 .register-btn {
   background-color: #62d1ff;
   margin-top: 15px;
+  box-shadow: 0 0 15px rgba(98, 209, 255, 0.6);
 }
 
 .register-btn:hover {
   background-color: #3ca5d9;
+  box-shadow: 0 0 15px rgba(98, 209, 255, 0.9);
 }
 
 .footer {
@@ -92,7 +96,33 @@ p {
   padding: 0.5rem;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100%; 
   z-index: 1000;
   border-top: 2px dashed #00fff7;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; 
+  animation: marquee 15s linear infinite; 
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+@keyframes neon-glow {
+  0% {
+    text-shadow: 0 0 10px #ff62cc, 0 0 20px #ff62cc, 0 0 30px #ff62cc, 0 0 40px #ff62cc;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff62cc, 0 0 30px #ff62cc, 0 0 40px #ff62cc, 0 0 50px #ff62cc;
+  }
 }
